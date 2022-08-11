@@ -2,7 +2,7 @@ const assert = require('assert');  // Node.js 内置的断言库，也可以选�
 
 // 构建产物中暴露出来的方法
 // 跟 bin/index.js 中使用相同的引用
-const cliFunc = require('../out/src/cli/xxx');
+const { cliFunc } = require('../out/src/cli/xxx');
 
 describe('这是一个单测', () => {
   describe('这是一个用例', () => {
@@ -14,8 +14,9 @@ describe('这是一个单测', () => {
       const param1 = 1;
       const param2 = 2;
       const command = {
-        log: true,
+        log: false,
       };  // 手动传入 command
+
       await cliFunc(param1, param2, command);
       assert(true);
       debugger;
